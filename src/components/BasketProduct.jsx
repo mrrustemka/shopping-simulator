@@ -1,10 +1,10 @@
 import React from "react";
 
-function BasketProduct() {
+function BasketProduct({ name, quantity }) {
   return (
     <div className="basket">
-      <p>Name</p>
-      <p>Quantity</p>
+      <p>{name} | </p>
+      <p>{quantity} | </p>
       <p>Unit Price</p>
       <p>Total Price</p>
       <button>Remove All</button>

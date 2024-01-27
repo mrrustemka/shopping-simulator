@@ -4,13 +4,17 @@ import Total from "./Total";
 import Card from "./Card";
 import Checkout from "./Checkout";
 import BasketProduct from "./BasketProduct";
+import defaultBasket from "../data/basket_sample.json";
 
 function Basket() {
+  console.log(defaultBasket.basket);
   return (
     <div>
       <h1>Basket</h1>
       <Total />
-      <BasketProduct />
+      {defaultBasket.basket.map((product) => (
+        <BasketProduct name={product.sku} quantity={product.quantity} />
+      ))}
       <Card />
       <Link to="/">Continue Shopping</Link>
       <Checkout />
