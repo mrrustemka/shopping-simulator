@@ -1,3 +1,4 @@
-.product p {
+.product p,
+.basket p {
   display: inline;
 }
