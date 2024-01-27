@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TotalItems from "./TotalItems";
+import TotalItems from "./Total";
 
 function ProductList() {
   return (
