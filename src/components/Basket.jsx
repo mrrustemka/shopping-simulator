@@ -7,7 +7,6 @@ import BasketProduct from "./BasketProduct";
 import defaultBasket from "../data/basket_sample.json";
 
 function Basket() {
-  console.log(defaultBasket.basket);
   return (
     <div>
       <h1>Basket</h1>

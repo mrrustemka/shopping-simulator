@@ -1,11 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
+import { legacy_createStore as createStore } from "redux";
+import { Provider } from "react-redux";
+import defaultBasket from "./data/basket_sample.json";
+import "./index.css";
+
+const defaultState = defaultBasket;
+
+const reducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case "ADD-TO-BASKET":
+      return {
+        ...state,
+        basket: state.basket.push([
+          {
+            sku: 100,
+            quantity: 500,
+          },
+        ]),
+      };
+    case "REMOVE-FROM-BASKET":
+      return {
+        ...state,
+        basket: state.basket.splice(
+          state.basket.indexOf((el) => el.sku === 3),
+          1
+        ),
+      };
+    default:
+      return state;
+  }
+};
+const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <>
+  <Provider store={store}>
     <App />
-  </>
+  </Provider>
 );

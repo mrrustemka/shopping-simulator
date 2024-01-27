@@ -11,7 +11,13 @@ function ProductList() {
       <Total />
       <Total />
       {products.map((product) => (
-        <Product name={product.name} />
+        <Product
+          name={product.name}
+          description={product.description}
+          key={product.sku}
+          price={product.price}
+          basketLimit={product.basketLimit}
+        />
       ))}
       <Link to="/basket">Proceed to checkout</Link>
     </div>
