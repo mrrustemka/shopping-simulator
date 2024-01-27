@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Total from "./Total";
 import Product from "./Product";
+import products from "../data/products_sample.json";
 
 function ProductList() {
   return (
@@ -9,7 +10,9 @@ function ProductList() {
       <h1>Product List</h1>
       <Total />
       <Total />
-      <Product />
+      {products.map((product) => (
+        <Product name={product.name} />
+      ))}
       <Link to="/basket">Proceed to checkout</Link>
     </div>
   );
