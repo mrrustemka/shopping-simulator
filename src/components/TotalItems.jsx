@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function TotalItems() {
-  return (
-    <div>TotalItems</div>
-  )
+  return <div>Total Items</div>;
 }
 
-export default TotalItems
+export default TotalItems;
