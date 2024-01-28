@@ -12,9 +12,10 @@ function ProductList() {
       <Total />
       {products.map((product) => (
         <Product
+          key={product.sku}
+          id={product.sku}
           name={product.name}
           description={product.description}
-          key={product.sku}
           price={product.price}
           basketLimit={product.basketLimit}
         />
