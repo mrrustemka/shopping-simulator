@@ -18,6 +18,7 @@ const reducer = (state = defaultState, action) => {
     case "REMOVE-FROM-BASKET":
       return {
         ...state,
+        basket: state.basket.splice(state.basket.indexOf(state.basket.filter((el) => el.sku === action.payload)), 1),
       };
     default:
       return state;
