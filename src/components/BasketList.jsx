@@ -4,12 +4,10 @@ import Total from "./Total";
 import Card from "./Card";
 import Checkout from "./Checkout";
 import BasketProduct from "./Basket";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Basket() {
-  const dispatch = useDispatch();
   const data = useSelector((state) => state.basket);
-  console.log(data);
   return (
     <div>
       <h1>Basket</h1>
