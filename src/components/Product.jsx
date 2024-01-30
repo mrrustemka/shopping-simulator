@@ -10,6 +10,7 @@ function Product({ name, description, price, basketLimit, id }) {
   function removeBasket(id) {
     dispatch({ type: "REMOVE-FROM-BASKET", payload: id });
   }
+
   return (
     <div className="product">
       <p>{name} | </p>

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Basket from "./components/Basket";
+import Basket from "./components/BasketList";
 import ProductList from "./components/ProductList";
 
 function App() {
