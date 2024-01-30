@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Total from "./Total";
+import Info from "./Info";
 import Card from "./Card";
 import Checkout from "./Checkout";
 import BasketProduct from "./Basket";
@@ -11,7 +11,7 @@ function Basket() {
   return (
     <div>
       <h1>Basket</h1>
-      <Total />
+      <Info message="Total Price" count={0} />
       {data.map((product) => (
         <BasketProduct
           id={product.sku}

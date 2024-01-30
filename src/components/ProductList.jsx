@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Total from "./Total";
+import Info from "./Info";
 import Product from "./Product";
 import products from "../data/products_sample.json";
+import { useSelector } from "react-redux";
 
 function ProductList() {
+  const data = useSelector((state) => state.basket.length);
   return (
     <div>
       <h1>Product List</h1>
-      <Total />
-      <Total />
+      <Info message="Basket Items" count={data} />
+      <Info message="Total Price" count={0} />
       {products.map((product) => (
         <Product
           key={product.sku}
