@@ -1,24 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Total from "./Total";
-import Card from "./Card";
-import Checkout from "./Checkout";
-import BasketProduct from "./BasketProduct";
-import defaultBasket from "../data/basket_sample.json";
 
-function Basket() {
+function BasketProduct({ id, quantity }) {
   return (
-    <div>
-      <h1>Basket</h1>
-      <Total />
-      {defaultBasket.basket.map((product) => (
-        <BasketProduct name={product.sku} quantity={product.quantity} />
-      ))}
-      <Card />
-      <Link to="/">Continue Shopping</Link>
-      <Checkout />
+    <div className="basket">
+      <p>{id} | </p>
+      <p>{quantity} | </p>
+      <p>Unit Price</p>
+      <p>Total Price</p>
+      <button>Remove All</button>
     </div>
   );
 }
 
-export default Basket;
+export default BasketProduct;
