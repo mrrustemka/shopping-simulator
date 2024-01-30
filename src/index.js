@@ -7,7 +7,6 @@ import defaultBasket from "./data/basket_sample.json";
 import "./index.css";
 
 const reducer = (state = defaultBasket, action) => {
-  console.log(state);
   switch (action.type) {
     case "ADD-TO-BASKET":
       return {
@@ -17,12 +16,7 @@ const reducer = (state = defaultBasket, action) => {
     case "REMOVE-FROM-BASKET":
       return {
         ...state,
-        basket: state.basket.splice(
-          state.basket.indexOf(
-            state.basket.filter((el) => el.sku === action.payload)
-          ),
-          1
-        ),
+        basket: removeProduct(state.basket, action.payload),
       };
     default:
       return state;
@@ -35,8 +29,10 @@ function addProduct(basket, product) {
   return basket;
 }
 
-function removerProduct(basket, product) {
-  basket.push(product);
+function removeProduct(basket, id) {
+  const element = basket.find((el) => el.sku === id);
+  const num = basket.indexOf(element);
+  basket.splice(basket.indexOf(element), 1);
   return basket;
 }
 
