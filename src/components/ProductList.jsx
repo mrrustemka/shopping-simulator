@@ -7,12 +7,16 @@ import { useSelector } from "react-redux";
 
 function ProductList() {
   const data = useSelector((state) => state);
-  console.log();
+  let basketPrice = 0;
+  data.basket.forEach((element) => {
+    const positionPrice = products.find((el) => el.sku === element.sku);
+    basketPrice += positionPrice.price * element.quantity;
+  });
   return (
     <div>
       <h1>Product List</h1>
       <Info message="Basket Items" count={data.basket.length} />
-      <Info message="Total Price" count={0} />
+      <Info message="Total Price" count={basketPrice} />
       {products.map((product) => (
         <Product
           key={product.sku}
