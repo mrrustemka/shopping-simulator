@@ -6,11 +6,12 @@ import products from "../data/products_sample.json";
 import { useSelector } from "react-redux";
 
 function ProductList() {
-  const data = useSelector((state) => state.basket.length);
+  const data = useSelector((state) => state);
+  console.log();
   return (
     <div>
       <h1>Product List</h1>
-      <Info message="Basket Items" count={data} />
+      <Info message="Basket Items" count={data.basket.length} />
       <Info message="Total Price" count={0} />
       {products.map((product) => (
         <Product
