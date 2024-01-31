@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Product({ name, description, price, basketLimit, id }) {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.basket);
+  
   const addBasket = (id) => {
     dispatch({ type: "ADD-TO-BASKET", payload: id });
   };
