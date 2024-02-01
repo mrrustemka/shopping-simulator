@@ -31,8 +31,9 @@ function addProduct(basket, product) {
 
 function removeProduct(basket, id) {
   const element = basket.find((el) => el.sku === id);
-  const num = basket.indexOf(element);
-  basket.splice(basket.indexOf(element), 1);
+  if (element) {
+    basket.splice(basket.indexOf(element), 1);
+  }
   return basket;
 }
 

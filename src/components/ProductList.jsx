@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Info from "./Info";
 import Product from "./Product";
 import products from "../data/products_sample.json";
-import { useSelector } from "react-redux";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
