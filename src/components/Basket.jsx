@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function BasketProduct({ id, quantity }) {
   const dispatch = useDispatch();
-  const basket = useSelector((state) => state.basket);
+  // const customerInfo = useSelector((state) => state.basket);
 
   function removeBasket(id) {
     dispatch({ type: "REMOVE-FROM-BASKET", payload: id });
