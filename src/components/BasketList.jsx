@@ -15,15 +15,17 @@ function Basket() {
     basketPrice += positionPrice.price * element.quantity;
   });
 
-  function isValidCardNumber() {
+  function isValidCardNumber(e) {
     if (cardNumber.length !== 16) {
       alert("Incorrect Card Number");
+      e.preventDefault();
     }
+    return;
   }
 
   return (
     <div>
-      <form>
+      <form onSubmit={isValidCardNumber}>
         <h1>Basket</h1>
         <Info message="Total Price" count={basketPrice} />
         {customerInfo.basket.map((product) => (
@@ -40,9 +42,7 @@ function Basket() {
           type="text"
           onChange={(e) => setCardNumber(e.target.value)}
         />
-        <button type="submit" onClick={isValidCardNumber}>
-          Checkout
-        </button>
+        <button type="submit">Checkout</button>
       </form>
       <Link to="/">Continue Shopping</Link>
     </div>
