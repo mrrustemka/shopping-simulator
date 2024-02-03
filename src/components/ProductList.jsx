@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import Info from "./Info";
 import Product from "./Product";
 import products from "../data/products_sample.json";
-
+import Table from "@mui/material/Table";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
@@ -18,16 +22,28 @@ function ProductList() {
       <h1>Product List</h1>
       <Info message="Basket Items" count={customerInfo.basket.length} unit="" />
       <Info message="Total Price" count={basketPrice.toFixed(2)} unit="$" />
-      {products.map((product) => (
-        <Product
-          key={product.sku}
-          id={product.sku}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          basketLimit={product.basketLimit}
-        />
-      ))}
+      <TableContainer>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          {products.map((product) => (
+            <Product
+              key={product.sku}
+              id={product.sku}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              basketLimit={product.basketLimit}
+            />
+          ))}
+        </Table>
+      </TableContainer>
       <Link to="/basket">Proceed to checkout</Link>
     </div>
   );
