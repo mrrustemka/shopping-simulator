@@ -4,13 +4,15 @@ import { useSelector } from "react-redux";
 import Info from "./Info";
 import Product from "./Product";
 import products from "../data/products_sample.json";
-import Table from "@mui/material/Table";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import {
+  Button,
+  Typography,
+  TableRow,
+  TableHead,
+  TableContainer,
+  TableCell,
+  Table,
+} from "@mui/material";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);

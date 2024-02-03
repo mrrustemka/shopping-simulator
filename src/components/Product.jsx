@@ -1,12 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "@mui/material/Button";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableBody from "@mui/material/TableBody";
-import Typography from "@mui/material/Typography";
+import {
+  Button,
+  Typography,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@mui/material";
+import {
+  ShoppingCartOutlinedIcon,
+  DeleteOutlineOutlinedIcon,
+} from "@mui/icons-material";
 
 function Product({ name, description, price, basketLimit, id }) {
   const dispatch = useDispatch();
