@@ -15,8 +15,8 @@ function ProductList() {
   return (
     <div>
       <h1>Product List</h1>
-      <Info message="Basket Items" count={customerInfo.basket.length} />
-      <Info message="Total Price" count={basketPrice.toFixed(2)} />
+      <Info message="Basket Items" count={customerInfo.basket.length} unit="" />
+      <Info message="Total Price" count={basketPrice.toFixed(2)} unit="$" />
       {products.map((product) => (
         <Product
           key={product.sku}
