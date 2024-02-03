@@ -55,22 +55,10 @@ function Basket() {
             </TableRow>
           </TableHead>
           {customerInfo.basket.map((product) => (
-            <BasketProduct
-              id={product.sku}
-              quantity={product.quantity}
-              key={product.sku}
-            />
+            <BasketProduct id={product.sku} key={product.sku} />
           ))}
         </Table>
       </TableContainer>
-      {/* <Info message="Basket Items" count={customerInfo.basket.length} unit="" /> */}
-      {/* {customerInfo.basket.map((product) => (
-        <BasketProduct
-          id={product.sku}
-          quantity={product.quantity}
-          key={product.sku}
-        />
-      ))} */}
       <form onSubmit={isValidCardNumber}>
         Bank Card:
         <input
