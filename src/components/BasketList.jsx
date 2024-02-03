@@ -27,7 +27,7 @@ function Basket() {
     <div>
       <form onSubmit={isValidCardNumber}>
         <h1>Basket</h1>
-        <Info message="Total Price" count={basketPrice} />
+        <Info message="Basket Items" count={customerInfo.basket.length} unit="" />
         {customerInfo.basket.map((product) => (
           <BasketProduct
             id={product.sku}
@@ -44,6 +44,7 @@ function Basket() {
         />
         <button type="submit">Checkout</button>
       </form>
+      <Info message="Total Price" count={basketPrice} unit="$" />
       <Link to="/">Continue Shopping</Link>
     </div>
   );
