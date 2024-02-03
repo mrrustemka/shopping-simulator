@@ -20,10 +20,9 @@ function ProductList() {
   });
   return (
     <div>
-      <Typography variant="h1" component="h1">
+      <Typography variant="h1" component="h1" textAlign="center">
         Catalog
       </Typography>
-
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -31,14 +30,14 @@ function ProductList() {
               <TableCell>Name</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Price</TableCell>
-              <TableCell>
+              <TableCell align="center">
                 <Info
                   message="Basket Items"
                   count={customerInfo.basket.length}
                   unit=""
                 />
               </TableCell>
-              <TableCell>
+              <TableCell align="center">
                 <Info
                   message="Total Price"
                   count={basketPrice.toFixed(2)}

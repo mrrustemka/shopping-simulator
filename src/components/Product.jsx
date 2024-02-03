@@ -6,6 +6,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
+import Typography from "@mui/material/Typography";
 
 function Product({ name, description, price, basketLimit, id }) {
   const dispatch = useDispatch();
@@ -24,34 +25,40 @@ function Product({ name, description, price, basketLimit, id }) {
 
   return (
     <TableBody className="product">
-      <TableRow>
+      <TableRow hover>
         <TableCell component="th" scope="row">
-          {name}
+          <Typography variant="h6">{name}</Typography>
         </TableCell>
-        <TableCell>{description}</TableCell>
-        <TableCell>{price + "$"}</TableCell>
+        <TableCell>
+          <Typography>{description}</Typography>
+        </TableCell>
+        <TableCell align="left">
+          <Typography variant="h6">{price + "$"}</Typography>
+        </TableCell>
         {productState(id) ? (
           <>
             <TableCell></TableCell>
-            <TableCell>
+            <TableCell align="center">
               <Button
                 onClick={() => removeBasket(id)}
                 variant="outlined"
                 startIcon={<DeleteOutlineOutlinedIcon />}
+                size="small"
               >
-                Remove from Basket
+                Remove
               </Button>
             </TableCell>
           </>
         ) : (
           <>
-            <TableCell>
+            <TableCell align="center">
               <Button
                 onClick={() => addBasket(id)}
                 variant="contained"
                 endIcon={<ShoppingCartOutlinedIcon />}
+                size="small"
               >
-                Add to Basket
+                Add
               </Button>
             </TableCell>
             <TableCell></TableCell>
