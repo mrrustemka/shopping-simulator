@@ -9,6 +9,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
@@ -19,9 +20,10 @@ function ProductList() {
   });
   return (
     <div>
-      <h1>Product List</h1>
-      <Info message="Basket Items" count={customerInfo.basket.length} unit="" />
-      <Info message="Total Price" count={basketPrice.toFixed(2)} unit="$" />
+      <Typography variant="h1" component="h1">
+        Catalog
+      </Typography>
+
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -29,7 +31,20 @@ function ProductList() {
               <TableCell>Name</TableCell>
               <TableCell>Description</TableCell>
               <TableCell>Price</TableCell>
-              <TableCell></TableCell>
+              <TableCell>
+                <Info
+                  message="Basket Items"
+                  count={customerInfo.basket.length}
+                  unit=""
+                />
+              </TableCell>
+              <TableCell>
+                <Info
+                  message="Total Price"
+                  count={basketPrice.toFixed(2)}
+                  unit="$"
+                />
+              </TableCell>
             </TableRow>
           </TableHead>
           {products.map((product) => (

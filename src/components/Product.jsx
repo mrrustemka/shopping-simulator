@@ -30,25 +30,33 @@ function Product({ name, description, price, basketLimit, id }) {
         </TableCell>
         <TableCell>{description}</TableCell>
         <TableCell>{price + "$"}</TableCell>
-        <TableCell>
-          {productState(id) ? (
-            <Button
-              onClick={() => removeBasket(id)}
-              variant="outlined"
-              startIcon={<DeleteOutlineOutlinedIcon />}
-            >
-              Remove from Basket
-            </Button>
-          ) : (
-            <Button
-              onClick={() => addBasket(id)}
-              variant="contained"
-              endIcon={<ShoppingCartOutlinedIcon />}
-            >
-              Add to Basket
-            </Button>
-          )}
-        </TableCell>
+        {productState(id) ? (
+          <>
+            <TableCell></TableCell>
+            <TableCell>
+              <Button
+                onClick={() => removeBasket(id)}
+                variant="outlined"
+                startIcon={<DeleteOutlineOutlinedIcon />}
+              >
+                Remove from Basket
+              </Button>
+            </TableCell>
+          </>
+        ) : (
+          <>
+            <TableCell>
+              <Button
+                onClick={() => addBasket(id)}
+                variant="contained"
+                endIcon={<ShoppingCartOutlinedIcon />}
+              >
+                Add to Basket
+              </Button>
+            </TableCell>
+            <TableCell></TableCell>
+          </>
+        )}
       </TableRow>
     </TableBody>
   );
