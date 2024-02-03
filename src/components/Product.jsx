@@ -7,10 +7,8 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
-import {
-  ShoppingCartOutlinedIcon,
-  DeleteOutlineOutlinedIcon,
-} from "@mui/icons-material";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 function Product({ name, description, price, basketLimit, id }) {
   const dispatch = useDispatch();
