@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import products from "../data/products_sample.json";
+import { Button, TableRow, TableCell, TableBody } from "@mui/material";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 function BasketProduct({ id, quantity }) {
   const dispatch = useDispatch();
@@ -15,13 +17,28 @@ function BasketProduct({ id, quantity }) {
   }
 
   return (
-    <div className="basket">
-      <p>{product.price} | </p>
-      <p>{quantity} | </p>
-      <p>{product.price + "$"} | </p>
-      <p>{product.price * quantity + "$"} | </p>
-      <button onClick={() => removeBasket(id)}>Remove All</button>
-    </div>
+    <TableBody>
+      <TableRow>
+        <TableCell variant="h6">{product.name}</TableCell>
+        <TableCell align="center">{quantity}</TableCell>
+        <TableCell variant="h6" align="center">
+          {product.price + "$"}
+        </TableCell>
+        <TableCell variant="h6" align="center">
+          {product.price * quantity + "$"}
+        </TableCell>
+        <TableCell align="center">
+          <Button
+            onClick={() => removeBasket(id)}
+            variant="outlined"
+            startIcon={<DeleteOutlineOutlinedIcon />}
+            size="small"
+          >
+            Remove All
+          </Button>
+        </TableCell>
+      </TableRow>
+    </TableBody>
   );
 }
 

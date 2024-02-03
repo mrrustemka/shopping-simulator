@@ -4,6 +4,15 @@ import Info from "./Info";
 import BasketProduct from "./Basket";
 import { useSelector } from "react-redux";
 import products from "../data/products_sample.json";
+import {
+  Button,
+  Typography,
+  TableRow,
+  TableHead,
+  TableContainer,
+  TableCell,
+  Table,
+} from "@mui/material";
 
 function Basket() {
   const customerInfo = useSelector((state) => state);
@@ -25,16 +34,44 @@ function Basket() {
 
   return (
     <div>
+      <Typography variant="h1" component="h1" textAlign="center">
+        Basket
+      </Typography>
+      <TableContainer>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Product Name</TableCell>
+              <TableCell align="center">Selected Quantity</TableCell>
+              <TableCell align="center">Unit Price</TableCell>
+              <TableCell align="center">Total Price</TableCell>
+              <TableCell align="center">
+                <Info
+                  message="Basket Items"
+                  count={customerInfo.basket.length}
+                  unit=""
+                />
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          {customerInfo.basket.map((product) => (
+            <BasketProduct
+              id={product.sku}
+              quantity={product.quantity}
+              key={product.sku}
+            />
+          ))}
+        </Table>
+      </TableContainer>
+      {/* <Info message="Basket Items" count={customerInfo.basket.length} unit="" /> */}
+      {/* {customerInfo.basket.map((product) => (
+        <BasketProduct
+          id={product.sku}
+          quantity={product.quantity}
+          key={product.sku}
+        />
+      ))} */}
       <form onSubmit={isValidCardNumber}>
-        <h1>Basket</h1>
-        <Info message="Basket Items" count={customerInfo.basket.length} unit="" />
-        {customerInfo.basket.map((product) => (
-          <BasketProduct
-            id={product.sku}
-            quantity={product.quantity}
-            key={product.sku}
-          />
-        ))}
         Bank Card:
         <input
           id="card"
