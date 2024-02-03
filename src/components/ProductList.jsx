@@ -10,6 +10,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
@@ -58,7 +59,11 @@ function ProductList() {
           ))}
         </Table>
       </TableContainer>
-      <Link to="/basket">Proceed to checkout</Link>
+      <div className="navigation">
+        <Link to="/basket" align="center">
+          <Button variant="outlined">Proceed to Checkout</Button>
+        </Link>
+      </div>
     </div>
   );
 }
