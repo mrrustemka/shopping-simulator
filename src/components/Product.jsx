@@ -22,7 +22,7 @@ function Product({ name, description, price, basketLimit, id }) {
     <div className="product">
       <p>{name} | </p>
       <p>{description} | </p>
-      <p>{price} | </p>
+      <p>{price + "$"} | </p>
       {productState(id) ? (
         <button onClick={() => removeBasket(id)}>Remove from Basket</button>
       ) : (
