@@ -5,6 +5,7 @@ import Info from "./Info";
 import Product from "./Product";
 import products from "../data/products_sample.json";
 
+
 function ProductList() {
   const customerInfo = useSelector((state) => state);
   let basketPrice = 0;
