@@ -16,7 +16,7 @@ import {
 
 function Basket() {
   const customerInfo = useSelector((state) => state);
-  let basketPrice = 0;
+  let [basketPrice, setBasketPrice] = useState(0);
   const [cardNumber, setCardNumber] = useState("");
 
   customerInfo.basket.forEach((element) => {
@@ -30,6 +30,11 @@ function Basket() {
       e.preventDefault();
     }
     return;
+  }
+
+  function getBasketPrice(num) {
+    console.log("test", num);
+    setBasketPrice(num);
   }
 
   return (
@@ -55,7 +60,7 @@ function Basket() {
             </TableRow>
           </TableHead>
           {customerInfo.basket.map((product) => (
-            <BasketProduct id={product.sku} key={product.sku} />
+            <BasketProduct id={product.sku} key={product.sku} getBasketPrice={getBasketPrice} />
           ))}
         </Table>
       </TableContainer>

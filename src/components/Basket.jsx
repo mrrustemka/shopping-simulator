@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
-function BasketProduct({ id }) {
+function BasketProduct({ id, getBasketPrice }) {
   const dispatch = useDispatch();
   const product = getProductInfo(id);
   const [quantity, setQuantity] = useState(1);
@@ -41,6 +41,11 @@ function BasketProduct({ id }) {
     return answer;
   }
 
+  function getQuantity(count) {
+    setQuantity(count);
+    getBasketPrice(product.price * count);
+  }
+
   return (
     <TableBody>
       <TableRow>
@@ -51,7 +56,7 @@ function BasketProduct({ id }) {
             <Select
               id="select"
               label="Quantity"
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => getQuantity(e.target.value)}
             >
               {getQuantityLimit(product.sku)}
             </Select>
@@ -61,7 +66,7 @@ function BasketProduct({ id }) {
           {product.price + "$"}
         </TableCell>
         <TableCell variant="h6" align="center">
-          {product.price * quantity + "$"}
+          {(product.price * quantity).toFixed(2) + "$"}
         </TableCell>
         <TableCell align="center">
           <Button
