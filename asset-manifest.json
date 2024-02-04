@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shopping-simulator/static/css/main.621e721a.css",
-    "main.js": "/shopping-simulator/static/js/main.67827e99.js",
+    "main.js": "/shopping-simulator/static/js/main.0474c4cb.js",
     "index.html": "/shopping-simulator/index.html",
     "main.621e721a.css.map": "/shopping-simulator/static/css/main.621e721a.css.map",
-    "main.67827e99.js.map": "/shopping-simulator/static/js/main.67827e99.js.map"
+    "main.0474c4cb.js.map": "/shopping-simulator/static/js/main.0474c4cb.js.map"
   },
   "entrypoints": [
     "static/css/main.621e721a.css",
-    "static/js/main.67827e99.js"
+    "static/js/main.0474c4cb.js"
   ]
 }
