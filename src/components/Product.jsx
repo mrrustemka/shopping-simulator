@@ -44,7 +44,7 @@ function Product({ name, description, price, basketLimit, id }) {
               <Button
                 onClick={() => removeBasket(id)}
                 variant="outlined"
-                startIcon={<DeleteOutlineOutlinedIcon />}
+                endIcon={<DeleteOutlineOutlinedIcon />}
                 size="small"
               >
                 Remove
