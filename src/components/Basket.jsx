@@ -10,6 +10,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Typography,
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
@@ -50,7 +51,9 @@ function BasketProduct({ id, getTotalBasketAmount }) {
   return (
     <TableBody>
       <TableRow hover>
-        <TableCell variant="h6">{product.name}</TableCell>
+        <TableCell>
+          <Typography variant="h6">{product.name}</Typography>
+        </TableCell>
         <TableCell align="center">
           <FormControl sx={{ m: 1, minWidth: 75 }}>
             <InputLabel>Quantity</InputLabel>
@@ -59,16 +62,17 @@ function BasketProduct({ id, getTotalBasketAmount }) {
               label="Quantity"
               onChange={(e) => getQuantity(e.target.value)}
               defaultValue={1}
+              size="small"
             >
               {getQuantityLimit(product.sku)}
             </Select>
           </FormControl>
         </TableCell>
-        <TableCell variant="h6" align="center">
-          {product.price + "$"}
+        <TableCell align="center"><Typography variant="h6">{product.price + "$"}</Typography>
+          
         </TableCell>
-        <TableCell variant="h6" align="center">
-          {(product.price * quantity).toFixed(2) + "$"}
+        <TableCell variant="h6" align="center"><Typography variant="h6">
+          {(product.price * quantity).toFixed(2) + "$"} </Typography>
         </TableCell>
         <TableCell align="center">
           <Button
