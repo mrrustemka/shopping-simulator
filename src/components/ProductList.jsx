@@ -63,7 +63,7 @@ function ProductList() {
         </Table>
       </TableContainer>
       <div className="navigation">
-        <Link to="/basket" align="center">
+        <Link to="/shopping-simulator/basket" align="center">
           <Button variant="outlined" endIcon={<ShoppingBasketOutlinedIcon />}>
             Proceed to Checkout
           </Button>

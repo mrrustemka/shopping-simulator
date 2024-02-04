@@ -8,8 +8,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route>
-            <Route path="/" index element={<ProductList />} />
-            <Route path="/basket" index element={<Basket />} />
+            <Route path="/shopping-simulator" index element={<ProductList />} />
+            <Route path="/shopping-simulator/basket" index element={<Basket />} />
           </Route>
         </Routes>
       </BrowserRouter>

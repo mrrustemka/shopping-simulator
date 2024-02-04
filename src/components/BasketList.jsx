@@ -96,7 +96,7 @@ function Basket() {
         >
           Pay
         </Button>
-        <Link to="/" align="center">
+        <Link to="/shopping-simulator/" align="center">
           <Button variant="outlined" endIcon={<AddShoppingCartOutlinedIcon />}>
             Continue Shopping
           </Button>
