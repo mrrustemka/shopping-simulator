@@ -44,7 +44,7 @@ function ProductList() {
               <TableCell align="center">
                 <Info
                   message="Total Price"
-                  count={customerInfo.totalPrice}
+                  count={customerInfo.totalPrice.toFixed(2)}
                   unit="$"
                 />
               </TableCell>

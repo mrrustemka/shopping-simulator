@@ -66,11 +66,19 @@ function Basket() {
             </TableRow>
           </TableHead>
           {customerInfo.basket.map((product) => (
-            <BasketProduct id={product.sku} key={product.sku} getTotalBasketAmount={getTotalBasketAmount} />
+            <BasketProduct
+              id={product.sku}
+              key={product.sku}
+              getTotalBasketAmount={getTotalBasketAmount}
+            />
           ))}
         </Table>
       </TableContainer>
-      <Info message="Total Price" count={customerInfo.totalPrice} unit="$" />
+      <Info
+        message="Total Price"
+        count={customerInfo.totalPrice.toFixed(2)}
+        unit="$"
+      />
       <form onSubmit={isValidCardNumber}>
         <FormLabel>Bank Card</FormLabel>
         <Input
