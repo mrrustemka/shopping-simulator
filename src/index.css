@@ -24,3 +24,7 @@ form button {
 .basket {
   text-align: center;
 }
+
+thead {
+  background-color: rgba(152, 185, 238, 0.306);
+}

@@ -52,7 +52,7 @@ function Basket() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Product Name</TableCell>
+              <TableCell style={{ fontWeight: "bold" }}>Product Name</TableCell>
               <TableCell align="center">Selected Quantity</TableCell>
               <TableCell align="center">Unit Price</TableCell>
               <TableCell align="center">Total Price</TableCell>
