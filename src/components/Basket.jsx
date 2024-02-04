@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import products from "../data/products_sample.json";
 import {
   Button,
@@ -14,7 +14,6 @@ import {
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 function BasketProduct({ id, getTotalBasketAmount }) {
-  const customerInfo = useSelector((state) => state);
   const dispatch = useDispatch();
   const product = getProductInfo(id);
   const [quantity, setQuantity] = useState(1);
