@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/shopping-simulator/static/css/main.74be7081.css",
-    "main.js": "/shopping-simulator/static/js/main.80b909f4.js",
+    "main.css": "/shopping-simulator/static/css/main.621e721a.css",
+    "main.js": "/shopping-simulator/static/js/main.67827e99.js",
     "index.html": "/shopping-simulator/index.html",
-    "main.74be7081.css.map": "/shopping-simulator/static/css/main.74be7081.css.map",
-    "main.80b909f4.js.map": "/shopping-simulator/static/js/main.80b909f4.js.map"
+    "main.621e721a.css.map": "/shopping-simulator/static/css/main.621e721a.css.map",
+    "main.67827e99.js.map": "/shopping-simulator/static/js/main.67827e99.js.map"
   },
   "entrypoints": [
-    "static/css/main.74be7081.css",
-    "static/js/main.80b909f4.js"
+    "static/css/main.621e721a.css",
+    "static/js/main.67827e99.js"
   ]
 }
