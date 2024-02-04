@@ -13,6 +13,7 @@ import {
   TableCell,
   Table,
 } from "@mui/material";
+import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
@@ -63,7 +64,9 @@ function ProductList() {
       </TableContainer>
       <div className="navigation">
         <Link to="/basket" align="center">
-          <Button variant="outlined">Proceed to Checkout</Button>
+          <Button variant="outlined" endIcon={<ShoppingBasketOutlinedIcon />}>
+            Proceed to Checkout
+          </Button>
         </Link>
       </div>
     </div>

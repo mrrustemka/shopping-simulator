@@ -17,6 +17,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
+import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 
 function Basket() {
   const customerInfo = useSelector((state) => state);
@@ -89,9 +90,14 @@ function Basket() {
         >
           Pay
         </Button>
+        <Link to="/" align="center">
+          <Button variant="outlined" endIcon={<AddShoppingCartOutlinedIcon />}>
+            Continue Shopping
+          </Button>
+        </Link>
       </form>
       <Info message="Total Price" count={basketPrice} unit="$" />
-      <Link to="/">Continue Shopping</Link>
+      {/* <Link to="/">Continue Shopping</Link> */}
     </div>
   );
 }
