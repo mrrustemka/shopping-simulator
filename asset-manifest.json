@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/shopping-simulator/static/css/main.74be7081.css",
+    "main.js": "/shopping-simulator/static/js/main.9580cfd1.js",
+    "index.html": "/shopping-simulator/index.html",
+    "main.74be7081.css.map": "/shopping-simulator/static/css/main.74be7081.css.map",
+    "main.9580cfd1.js.map": "/shopping-simulator/static/js/main.9580cfd1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74be7081.css",
+    "static/js/main.9580cfd1.js"
+  ]
+}
