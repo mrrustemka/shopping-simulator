@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Info from "./Info";
 import BasketProduct from "./Basket";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import products from "../data/products_sample.json";
 import {
   Button,
@@ -21,13 +21,19 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 
 function Basket() {
   const customerInfo = useSelector((state) => state);
-  let [basketPrice, setBasketPrice] = useState(0);
+  const dispatch = useDispatch();
   const [cardNumber, setCardNumber] = useState("");
 
-  customerInfo.basket.forEach((element) => {
-    const positionPrice = products.find((el) => el.sku === element.sku);
-    basketPrice += positionPrice.price * element.quantity;
-  });
+  function getTotalBasketAmount() {
+    let sum = 0;
+    customerInfo.basket.forEach((element) => {
+      const positionPrice = products.find(
+        (el) => el.sku === element.sku
+      )?.price;
+      sum += positionPrice * element.quantity;
+    });
+    dispatch({ type: "UPDATE-TOTAL-AMOUNT", payload: sum });
+  }
 
   function isValidCardNumber(e) {
     if (cardNumber.length !== 16) {
@@ -37,13 +43,8 @@ function Basket() {
     return;
   }
 
-  function getBasketPrice(num) {
-    console.log("test", num);
-    setBasketPrice(num);
-  }
-
   return (
-    <div>
+    <div className="basket">
       <Typography variant="h1" component="h1" textAlign="center">
         Basket
       </Typography>
@@ -65,14 +66,11 @@ function Basket() {
             </TableRow>
           </TableHead>
           {customerInfo.basket.map((product) => (
-            <BasketProduct
-              id={product.sku}
-              key={product.sku}
-              getBasketPrice={getBasketPrice}
-            />
+            <BasketProduct id={product.sku} key={product.sku} getTotalBasketAmount={getTotalBasketAmount} />
           ))}
         </Table>
       </TableContainer>
+      <Info message="Total Price" count={customerInfo.totalPrice} unit="$" />
       <form onSubmit={isValidCardNumber}>
         <FormLabel>Bank Card</FormLabel>
         <Input
@@ -96,8 +94,6 @@ function Basket() {
           </Button>
         </Link>
       </form>
-      <Info message="Total Price" count={basketPrice} unit="$" />
-      {/* <Link to="/">Continue Shopping</Link> */}
     </div>
   );
 }

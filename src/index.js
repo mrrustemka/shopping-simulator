@@ -18,6 +18,16 @@ const reducer = (state = defaultBasket, action) => {
         ...state,
         basket: removeProduct(state.basket, action.payload),
       };
+    case "UPDATE-PRODUCT":
+      return {
+        ...state,
+        basket: updateProduct(state.basket, action.payload, action.count),
+      };
+    case "UPDATE-TOTAL-AMOUNT":
+      return {
+        ...state,
+        totalPrice: updateTotalCost(state.basket, action.payload),
+      };
     default:
       return state;
   }
@@ -35,6 +45,17 @@ function removeProduct(basket, id) {
     basket.splice(basket.indexOf(element), 1);
   }
   return basket;
+}
+
+function updateProduct(basket, id, count) {
+  const element = basket.find((el) => el.sku === id);
+  element.quantity = count;
+  return basket;
+}
+
+function updateTotalCost(totalPrice, total) {
+  totalPrice = total;
+  return totalPrice;
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

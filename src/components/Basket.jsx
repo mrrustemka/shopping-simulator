@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import products from "../data/products_sample.json";
 import {
   Button,
@@ -13,7 +13,8 @@ import {
 } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
-function BasketProduct({ id, getBasketPrice }) {
+function BasketProduct({ id, getTotalBasketAmount }) {
+  const customerInfo = useSelector((state) => state);
   const dispatch = useDispatch();
   const product = getProductInfo(id);
   const [quantity, setQuantity] = useState(1);
@@ -43,7 +44,8 @@ function BasketProduct({ id, getBasketPrice }) {
 
   function getQuantity(count) {
     setQuantity(count);
-    getBasketPrice(product.price * count);
+    dispatch({ type: "UPDATE-PRODUCT", payload: id, count: count });
+    getTotalBasketAmount();
   }
 
   return (
@@ -57,6 +59,7 @@ function BasketProduct({ id, getBasketPrice }) {
               id="select"
               label="Quantity"
               onChange={(e) => getQuantity(e.target.value)}
+              defaultValue={1}
             >
               {getQuantityLimit(product.sku)}
             </Select>

@@ -17,10 +17,10 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 
 function ProductList() {
   const customerInfo = useSelector((state) => state);
-  let basketPrice = 0;
+  customerInfo.totalPrice = 0;
   customerInfo.basket.forEach((element) => {
     const positionPrice = products.find((el) => el.sku === element.sku);
-    basketPrice += positionPrice.price * element.quantity;
+    customerInfo.totalPrice += positionPrice.price;
   });
   return (
     <div>
@@ -44,7 +44,7 @@ function ProductList() {
               <TableCell align="center">
                 <Info
                   message="Total Price"
-                  count={basketPrice.toFixed(2)}
+                  count={customerInfo.totalPrice}
                   unit="$"
                 />
               </TableCell>
