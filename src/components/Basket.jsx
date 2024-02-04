@@ -48,7 +48,7 @@ function BasketProduct({ id, getBasketPrice }) {
 
   return (
     <TableBody>
-      <TableRow>
+      <TableRow hover>
         <TableCell variant="h6">{product.name}</TableCell>
         <TableCell align="center">
           <FormControl sx={{ m: 1, minWidth: 75 }}>

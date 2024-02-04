@@ -12,7 +12,11 @@ import {
   TableContainer,
   TableCell,
   Table,
+  Input,
+  FormLabel,
+  FormHelperText,
 } from "@mui/material";
+import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 
 function Basket() {
   const customerInfo = useSelector((state) => state);
@@ -60,19 +64,31 @@ function Basket() {
             </TableRow>
           </TableHead>
           {customerInfo.basket.map((product) => (
-            <BasketProduct id={product.sku} key={product.sku} getBasketPrice={getBasketPrice} />
+            <BasketProduct
+              id={product.sku}
+              key={product.sku}
+              getBasketPrice={getBasketPrice}
+            />
           ))}
         </Table>
       </TableContainer>
       <form onSubmit={isValidCardNumber}>
-        Bank Card:
-        <input
+        <FormLabel>Bank Card</FormLabel>
+        <Input
           id="card"
           placeholder="Enter your credit/debit card..."
           type="text"
           onChange={(e) => setCardNumber(e.target.value)}
+          required
         />
-        <button type="submit">Checkout</button>
+        <FormHelperText>16 numbers</FormHelperText>
+        <Button
+          type="submit"
+          variant="contained"
+          endIcon={<PaymentOutlinedIcon />}
+        >
+          Pay
+        </Button>
       </form>
       <Info message="Total Price" count={basketPrice} unit="$" />
       <Link to="/">Continue Shopping</Link>
